@@ -38,7 +38,7 @@ app.post("/db/books", async (req, res) => {
   }
 });
 
-// reteive books from db
+// reteive all books from db
 app.get('/get/books', async (req, res) => {
   try{
     const books = await Book.find({});
@@ -47,6 +47,20 @@ app.get('/get/books', async (req, res) => {
       count: books.length,
       data: books
     });
+  } catch (err) {
+    console.log(err.message);
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+// reteive one book from db using id
+app.get('/get/books/:id', async (req, res) => {
+  try{
+    const { id } = req.params;
+
+    const book = await Book.findById(id);
+
+    return res.status(200).json(book);
   } catch (err) {
     console.log(err.message);
     return res.status(500).send({ message: err.message });
