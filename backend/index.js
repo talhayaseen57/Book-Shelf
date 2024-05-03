@@ -39,13 +39,13 @@ app.post("/db/books", async (req, res) => {
 });
 
 // reteive all books from db
-app.get('/get/books', async (req, res) => {
-  try{
+app.get("/get/books", async (req, res) => {
+  try {
     const books = await Book.find({});
 
     return res.status(200).json({
       count: books.length,
-      data: books
+      data: books,
     });
   } catch (err) {
     console.log(err.message);
@@ -54,13 +54,38 @@ app.get('/get/books', async (req, res) => {
 });
 
 // reteive one book from db using id
-app.get('/get/books/:id', async (req, res) => {
-  try{
+app.get("/get/books/:id", async (req, res) => {
+  try {
     const { id } = req.params;
 
     const book = await Book.findById(id);
 
     return res.status(200).json(book);
+  } catch (err) {
+    console.log(err.message);
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+// update a book
+app.put("/update/books/:id", (req, res) => {
+  try {
+    if (!req.body.title || !req.body.author || !req.body.publishYear) {
+      return res.status(400).send({
+        message: "Send all required fields: title, author and publish year.",
+      });
+    } else {
+      const { id } = req.params;
+      const result = Book.findByIdAndUpdate(id, req.body);
+
+      if (!result) {
+        return res.status(404).json({ message: "Book Not Found." });
+      } else {
+        return res
+          .status(200)
+          .send({ message: "Book is successfully updated." });
+      }
+    }
   } catch (err) {
     console.log(err.message);
     return res.status(500).send({ message: err.message });
