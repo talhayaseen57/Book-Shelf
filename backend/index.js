@@ -38,6 +38,18 @@ app.post("/db/books", async (req, res) => {
   }
 });
 
+// reteive books from db
+app.get('/get/books', async (req, res) => {
+  try{
+    const books = await Book.find({});
+
+    return res.status(200).send(`The books in database are: ${books}`);
+  } catch (err) {
+    console.log(err.message);
+    return res.status(500).send({ message: err.message });
+  }
+});
+
 mongoose
   .connect(MONGODB_URL)
   .then(() => {
