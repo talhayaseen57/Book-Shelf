@@ -68,7 +68,7 @@ app.get("/get/books/:id", async (req, res) => {
 });
 
 // update a book
-app.put("/update/books/:id", (req, res) => {
+app.put("/update/books/:id", async (req, res) => {
   try {
     if (!req.body.title || !req.body.author || !req.body.publishYear) {
       return res.status(400).send({
@@ -76,7 +76,7 @@ app.put("/update/books/:id", (req, res) => {
       });
     } else {
       const { id } = req.params;
-      const result = Book.findByIdAndUpdate(id, req.body);
+      const result = await Book.findByIdAndUpdate(id, req.body);
 
       if (!result) {
         return res.status(404).json({ message: "Book Not Found." });
