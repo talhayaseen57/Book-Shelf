@@ -1,7 +1,7 @@
 import express from "express";
 import { PORT, MONGODB_URL } from "./config.js";
 import mongoose from "mongoose";
-import { Book } from "./models/bookModel.js";
+import booksRoute from "./routes/booksRoute.js";
 
 const app = express();
 
@@ -14,100 +14,7 @@ app.get("/", (req, res) => {
     .send("Welcome to Talha's first MERN stack application.");
 });
 
-// save books in Mongo DB
-app.post("/db/books", async (req, res) => {
-  try {
-    if (!req.body.title || !req.body.author || !req.body.publishYear) {
-      return req.status(400).send({
-        message: "Send all required fields: title, author and publish year.",
-      });
-    } else {
-      const newBook = {
-        title: req.body.title,
-        author: req.body.author,
-        publishYear: req.body.publishYear,
-      };
-
-      const book = await Book.create(newBook);
-
-      return res.status(201).send(`New book is created: ${book}`);
-    }
-  } catch (err) {
-    console.log(err.message);
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-// reteive all books from db
-app.get("/get/books", async (req, res) => {
-  try {
-    const books = await Book.find({});
-
-    return res.status(200).json({
-      count: books.length,
-      data: books,
-    });
-  } catch (err) {
-    console.log(err.message);
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-// reteive one book from db using id
-app.get("/get/books/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const book = await Book.findById(id);
-
-    return res.status(200).json(book);
-  } catch (err) {
-    console.log(err.message);
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-// update a book
-app.put("/update/books/:id", async (req, res) => {
-  try {
-    if (!req.body.title || !req.body.author || !req.body.publishYear) {
-      return res.status(400).send({
-        message: "Send all required fields: title, author and publish year.",
-      });
-    } else {
-      const { id } = req.params;
-      const result = await Book.findByIdAndUpdate(id, req.body);
-
-      if (!result) {
-        return res.status(404).json({ message: "Book Not Found." });
-      } else {
-        return res
-          .status(200)
-          .send({ message: "Book is successfully updated." });
-      }
-    }
-  } catch (err) {
-    console.log(err.message);
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-// delete a book
-app.delete("/delete/books/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const result = await Book.findByIdAndDelete(id);
-
-    if (!result) {
-      return res.status(404).send({ message: "Book Not Found." });
-    } else {
-      return res.status(200).send({ message: "Book is sucessfully deleted." });
-    }
-  } catch (err) {
-    console.log(err.message);
-    return res.status(500).send({ message: err.message });
-  }
-}); 
+app.use('/books', booksRoute);
 
 mongoose
   .connect(MONGODB_URL)
