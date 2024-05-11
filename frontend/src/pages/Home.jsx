@@ -25,17 +25,19 @@ const Home = () => {
   return (
     <div className='p-4'>
       <div className='flex justify-between items-center'>
-        <h1 className='text-3xl my-8 font-bold'>Books on Shelf</h1>
+        <h1 className='text-4xl my-8 font-bold'>Books on Shelf</h1>
         <Link to='/books/save'>
-          <MdOutlineAddBox className='text-sky-800 text-3xl' />
+          <MdOutlineAddBox className='text-sky-700 text-3xl' />
         </Link>
       </div>
       {loading ? (
-        <Spinner />
+        <div className='flex justify-center'>
+          <Spinner />
+        </div>
       ) : (
-        <table className='w-full border-separate border-spacing-2'>
+        <table className='w-full border-separate'>
           <thead>
-            <tr>
+            <tr className='h-10'>
               <th className='border border-slate-600 rounded-md'>No.</th>
               <th className='border border-slate-600 rounded-md'>Book Title</th>
               <th className='border border-slate-600 rounded-md max-md:hidden'>
