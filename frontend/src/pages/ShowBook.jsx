@@ -29,7 +29,7 @@ const ShowBook = () => {
       <div className="flex flex-row items-center">
         <BackButton />
         <h1 className="text-3xl my-5 ml-3 font-bold">Book Details</h1>
-    </div>
+      </div>
       {loading ? (
         <Spinner />
       ) : (
@@ -40,24 +40,34 @@ const ShowBook = () => {
           </div> */}
           <div className="my-2">
             <span className="mr-5 text-gray">Book Title:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">{book.title}</span>
+            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+              {book.title}
+            </span>
           </div>
           <div className="my-2">
             <span className="mr-5 text-gray">Author Name:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">{book.author}</span>
+            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+              {book.author}
+            </span>
           </div>
           <div className="my-2">
             <span className="mr-5 text-gray">Year of Publish:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">{book.publishYear}</span>
+            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+              {book.publishYear}
+            </span>
           </div>
           <div className="my-2">
             <span className="mr-5 text-gray">Created At:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">{new Date(book.createdAt).toString()}</span>
+            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+              {new Date(book.createdAt).toString()}
+            </span>
           </div>
           <div className="my-2">
             <span className="mr-5 text-gray">Last Updated At:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">{new Date(book.updatedAt).toString()}</span>
-          </div>          
+            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+              {new Date(book.updatedAt).toString()}
+            </span>
+          </div>
         </div>
       )}
     </div>
