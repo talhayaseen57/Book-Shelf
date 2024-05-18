@@ -31,7 +31,9 @@ const ShowBook = () => {
         <h1 className="text-3xl my-5 ml-3 font-bold">Book Details</h1>
       </div>
       {loading ? (
-        <Spinner />
+        <div className='flex justify-center'>
+          <Spinner />
+        </div>
       ) : (
         <div className="flex flex-col w-fit p-5">
           {/* <div className="my-5">
