@@ -26,7 +26,7 @@ const Home = () => {
     <div className='p-4'>
       <div className='flex justify-between items-center'>
         <h1 className='text-3xl my-8 font-bold'>Books on Shelf</h1>
-        <Link to='/books/save'>
+        <Link to='/create-book'>
           <MdOutlineAddBox className='text-sky-700 text-3xl' />
         </Link>
       </div>
@@ -69,10 +69,10 @@ const Home = () => {
                     <Link to={`/show-book/${book._id}`}>
                       <BsInfoCircle className='text-2xl text-green-800' />
                     </Link>
-                    <Link to={`/books/edit/${book._id}`}>
+                    <Link to={`/edit-book/${book._id}`}>
                       <AiOutlineEdit className='text-2xl text-yellow-600' />
                     </Link>
-                    <Link to={`/books/delete/${book._id}`}>
+                    <Link to={`/delete-book/${book._id}`}>
                       <MdOutlineDelete className='text-2xl text-red-600' />
                     </Link>
                   </div>

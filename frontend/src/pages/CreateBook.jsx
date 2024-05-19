@@ -25,7 +25,7 @@ const CreateBook = () => {
       })
       .catch((err) => {
         setLoading(false);
-        alert("An error occurred while saving. Kindly check the console.")
+        alert("An error occurred while saving. Check the console.")
         console.log(err);        
       });
   };
@@ -36,15 +36,19 @@ const CreateBook = () => {
         <BackButton />
         <h1 className="text-3xl my-5 ml-3 font-bold">Add a new Book</h1>
       </div>
-      {loading ? <Spinner/> : ''}
-      <div className='flex flex-col border-2 bg-gray-800 border-gray-800 rounded-lg w-auto p-4 mx-auto'>
+      {loading ? (
+        <div className='flex justify-center'>
+          <Spinner/>
+        </div>
+      ) : ''}
+      <div className='flex flex-col border-2 bg-gray-800 border-gray-800 rounded-md w-full max-w-[600px] p-4 mx-auto'>
         <div className='my-4'>
           <label className='text-x1 mr-4 text-white'>Book Title:</label>
           <input 
             type="text" 
             value={title}
             onChange={(inputField) => setTitle(inputField.target.value)}
-            className='border-2 border-gray-300 bg-gray-300 rounded-md px-4 py-2 w-full'
+            className='border-2 border-gray-300 bg-gray-300 rounded-lg px-4 py-2 w-full'
           />
         </div>
         <div className='my-4'>
@@ -53,7 +57,7 @@ const CreateBook = () => {
             type="text" 
             value={author}
             onChange={(inputField) => setAuthor(inputField.target.value)}
-            className='border-2 border-gray-300 bg-gray-300 rounded-md px-4 py-2 w-full'
+            className='border-2 border-gray-300 bg-gray-300 rounded-lg px-4 py-2 w-full'
           />
         </div>
         <div className='my-4'>
@@ -62,7 +66,7 @@ const CreateBook = () => {
             type="text" 
             value={publishYear}
             onChange={(inputField) => setPublishYear(inputField.target.value)}
-            className='border-2 border-gray-300 bg-gray-300 rounded-md px-4 py-2 w-full'
+            className='border-2 border-gray-300 bg-gray-300 rounded-lg px-4 py-2 w-full'
           />
         </div>
         <button className='p-2 bg-sky-300 m-8 rounded-lg' onClick={handleSaveBook}>
