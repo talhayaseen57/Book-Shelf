@@ -37,35 +37,35 @@ const CreateBook = () => {
         <h1 className="text-3xl my-5 ml-3 font-bold">Add a new Book</h1>
       </div>
       {loading ? <Spinner/> : ''}
-      <div className='flex flex-col border-2 border-sky-400 rounded-x2 w-[600px] p-4 mx-auto'>
+      <div className='flex flex-col border-2 bg-gray-800 border-gray-800 rounded-lg w-auto p-4 mx-auto'>
         <div className='my-4'>
-          <label className='text-x1 mr-4 text-gray-500'>Book Title: </label>
+          <label className='text-x1 mr-4 text-white'>Book Title:</label>
           <input 
             type="text" 
             value={title}
             onChange={(inputField) => setTitle(inputField.target.value)}
-            className='border-2 border-gray-500 px-4 py-2 w-full'
+            className='border-2 border-gray-300 bg-gray-300 rounded-md px-4 py-2 w-full'
           />
         </div>
         <div className='my-4'>
-          <label className='text-x1 mr-4 text-gray-500'>Author Name: </label>
+          <label className='text-x1 mr-4 text-white'>Author Name:</label>
           <input 
             type="text" 
             value={author}
             onChange={(inputField) => setAuthor(inputField.target.value)}
-            className='border-2 border-gray-500 px-4 py-2 w-full'
+            className='border-2 border-gray-300 bg-gray-300 rounded-md px-4 py-2 w-full'
           />
         </div>
         <div className='my-4'>
-          <label className='text-x1 mr-4 text-gray-500'>Year of Publish: </label>
+          <label className='text-x1 mr-4 text-white'>Year of Publish:</label>
           <input 
             type="text" 
             value={publishYear}
             onChange={(inputField) => setPublishYear(inputField.target.value)}
-            className='border-2 border-gray-500 px-4 py-2 w-full'
+            className='border-2 border-gray-300 bg-gray-300 rounded-md px-4 py-2 w-full'
           />
         </div>
-        <button className='p-2 bg-sky-200 m-8' onClick={handleSaveBook}>
+        <button className='p-2 bg-sky-300 m-8 rounded-lg' onClick={handleSaveBook}>
           Save Book
         </button>
       </div>
