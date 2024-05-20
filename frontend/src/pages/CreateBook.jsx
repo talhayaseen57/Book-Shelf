@@ -69,7 +69,7 @@ const CreateBook = () => {
             className='border-2 border-gray-300 bg-gray-300 rounded-lg px-4 py-2 w-full'
           />
         </div>
-        <button className='p-2 bg-sky-300 m-8 rounded-lg' onClick={handleSaveBook}>
+        <button className='p-2 bg-sky-300 hover:bg-sky-400 hover:font-bold m-8 rounded-lg' onClick={handleSaveBook}>
           Save Book
         </button>
       </div>

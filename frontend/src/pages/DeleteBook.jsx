@@ -40,16 +40,16 @@ const DeleteBook = () => {
         </div>
       ) : ''}
       <div className="flex flex-col items-center border-2 border-gray-300 bg-gray-300 rounded-md w-full max-w-[600px] p-8 mx-auto">
-        <h3 className="text-2x1">Are you sure you want to delete this book?</h3>
+        <h3 className="text-xl">Are you sure you want to delete this book?</h3>
         <div className="flex justify-center">
           <button
-            className="p-5 bg-red-600 text-white m-5 w-half"
+            className="px-5 py-2 rounded-md bg-red-600 text-white m-5 w-half"
             onClick={handleDeleteBookFunc}
           >
             Yes
           </button>
           <button
-            className="p-5 bg-green-600 text-white m-5 w-half"
+            className="px-5 py-2 rounded-md bg-green-600 text-white m-5 w-half"
             onClick={handleDonotDeleteButtonFunc}
           >
             No
