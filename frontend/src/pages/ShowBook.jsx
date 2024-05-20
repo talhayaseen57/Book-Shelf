@@ -11,7 +11,6 @@ const ShowBook = () => {
 
   useEffect(() => {
     setLoading(true);
-
     axios
       .get(`http://localhost:5555/books/get/${id}`)
       .then((res) => {
