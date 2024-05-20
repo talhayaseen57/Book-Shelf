@@ -42,31 +42,31 @@ const ShowBook = () => {
           </div> */}
           <div className="my-2">
             <span className="mr-5 text-gray">Book Title:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+            <span className="bg-gray-500 text-white px-3 rounded-md py-1">
               {book.title}
             </span>
           </div>
           <div className="my-2">
             <span className="mr-5 text-gray">Author Name:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+            <span className="bg-gray-500 text-white px-3 rounded-md py-1">
               {book.author}
             </span>
           </div>
           <div className="my-2">
             <span className="mr-5 text-gray">Year of Publish:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+            <span className="bg-gray-500 text-white px-3 rounded-md py-1">
               {book.publishYear}
             </span>
           </div>
           <div className="my-2">
             <span className="mr-5 text-gray">Created At:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+            <span className="bg-gray-500 text-white px-3 rounded-md py-1">
               {new Date(book.createdAt).toString()}
             </span>
           </div>
           <div className="my-2">
             <span className="mr-5 text-gray">Last Updated At:</span>
-            <span className="bg-gray-500 text-white px-3 rounded-lg py-1">
+            <span className="bg-gray-500 text-white px-3 rounded-md py-1">
               {new Date(book.updatedAt).toString()}
             </span>
           </div>
