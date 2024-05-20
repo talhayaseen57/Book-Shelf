@@ -36,7 +36,7 @@ const Home = () => {
         </div>
       ) : (
         <table className='w-full border-separate'>
-          <thead>
+          <thead className='bg-gray-800 text-white'>
             <tr className='h-10'>
               <th className='border border-slate-600 rounded-md'>No.</th>
               <th className='border border-slate-600 rounded-md'>Book Title</th>
@@ -49,7 +49,7 @@ const Home = () => {
               <th className='border border-slate-600 rounded-md'>Operations</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='bg-gray-400'>
             {books.map((book, index) => (
               <tr key={book._id} className='h-8'>
                 <td className='border border-slate-700 rounded-md text-center'>
