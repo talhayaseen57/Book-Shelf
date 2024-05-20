@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
 import { Link } from 'react-router-dom';
-import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
+import { MdOutlineAddBox } from 'react-icons/md';
 import BooksCard from '../components/home/BooksCard';
 import BooksTable from '../components/home/BooksTable';
 
@@ -34,15 +34,15 @@ const Home = () => {
         </Link>
       </div>
 
-      <div className='flex justify-center items-center gap-x-4 m-2'>
+      <div className='flex justify-center items-center gap-x-4 m-5'>
         <button
-          className='px-10 py-2 m-2 bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
+          className='px-10 py-2 bg-sky-300 hover:bg-sky-500 px-4 py-1 rounded-lg'
           onClick={() => setShowType('table')}
         >
           Show in Table
         </button>
         <button
-          className='px-10 py-2 bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
+          className='px-10 py-2 bg-sky-300 hover:bg-sky-500 px-4 py-1 rounded-lg'
           onClick={() => setShowType('card')}
         >
           Show in Card
