@@ -1,16 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const CreateBook = () => {
+const UpdateBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
   const [loading, setLoading] = useState(false);
   const navigateURL = useNavigate();
-  const handleSaveBook = () => {
+  const { id } = useParams();
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`http://localhost:5555/books/get/${id}`)
+      .then((res) => {
+        setTitle(res.data.title);
+        setAuthor(res.data.author);
+        setPublishYear(res.data.publishYear);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        alert('An error occured while loading the book. Check the console.');
+        console.log(err);
+      });
+  }, []);
+
+  const handleEditBookFunc = () => {
     const bookData = {
       title,
       author,
@@ -18,7 +37,7 @@ const CreateBook = () => {
     };
     setLoading(true);
     axios
-      .post('http://localhost:5555/books/save', bookData)
+      .put(`http://localhost:5555/books/update/${id}`, bookData)
       .then(() => {
         setLoading(false);
         navigateURL('/');
@@ -34,7 +53,7 @@ const CreateBook = () => {
     <div className='p-5'>
       <div className="flex flex-row items-center">
         <BackButton />
-        <h1 className="text-3xl my-5 ml-3 font-bold">Add a new Book</h1>
+        <h1 className="text-3xl my-5 ml-3 font-bold">Update a Book</h1>
       </div>
       {loading ? (
         <div className='flex justify-center'>
@@ -69,12 +88,12 @@ const CreateBook = () => {
             className='border-2 border-gray-300 bg-gray-300 rounded-lg px-4 py-2 w-full'
           />
         </div>
-        <button className='p-2 bg-sky-300 m-8 rounded-lg' onClick={handleSaveBook}>
-          Save Book
+        <button className='p-2 bg-sky-300 m-8 rounded-lg' onClick={handleEditBookFunc}>
+          Update Book
         </button>
       </div>
     </div>
   )
 };
 
-export default CreateBook;
+export default UpdateBook;

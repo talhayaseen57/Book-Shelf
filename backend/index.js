@@ -6,7 +6,7 @@ import cors from "cors";
 
 const app = express();
 
-// middleware to parse request body 
+// middleware to parse request body
 app.use(express.json());
 
 // middleware to handle CORS Policy
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
     .send("Welcome to Talha's first MERN stack application.");
 });
 
-app.use('/books', booksRoute);
+app.use("/books", booksRoute);
 
 mongoose
   .connect(MONGODB_URL)
