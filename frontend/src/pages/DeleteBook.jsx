@@ -46,13 +46,13 @@ const DeleteBook = () => {
         <h3 className="text-xl">Are you sure you want to delete this book?</h3>
         <div className="flex justify-center">
           <button
-            className="px-5 py-2 rounded-md bg-red-600 text-white m-5 w-half"
+            className="px-5 py-2 rounded-md bg-red-600 text-white m-5 w-half hover:shadow-md"
             onClick={handleDeleteBookFunc}
           >
             Yes
           </button>
           <button
-            className="px-5 py-2 rounded-md bg-green-600 text-white m-5 w-half"
+            className="px-5 py-2 rounded-md bg-green-600 text-white m-5 w-half hover:shadow-md"
             onClick={handleDonotDeleteButtonFunc}
           >
             No

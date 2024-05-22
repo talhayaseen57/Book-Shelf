@@ -63,7 +63,7 @@ const UpdateBook = () => {
           <Spinner/>
         </div>
       ) : ''}
-      <div className='flex flex-col border-2 bg-gray-800 border-gray-800 rounded-md w-full max-w-[600px] p-4 mx-auto'>
+      <div className='flex flex-col border-2 bg-gray-800 border-gray-800 rounded-md w-full max-w-[600px] p-4 mx-auto shadow-xl'>
         <div className='my-4'>
           <label className='text-x1 mr-4 text-white'>Book Title:</label>
           <input 
