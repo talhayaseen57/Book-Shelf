@@ -1,5 +1,5 @@
 // import React from 'react';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import CreateBook from './pages/CreateBook';
 import DeleteBook from './pages/DeleteBook';
 import Home from './pages/Home';
