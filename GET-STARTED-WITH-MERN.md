@@ -8,10 +8,10 @@ Create the following folders to organize your project:
 mkdir backend frontend
 ```
 
-## Step 2: Intilize your backend
+## Step 2: Initialize  your backend
 
-Follow the steps to intialize your backend in [Initializing-the-Backend.md](./backend/Initializing-The-Backend.md).
+Follow the steps to initialize your backend in [Initializing-the-Backend.md](./backend/Initializing-The-Backend.md).
 
-## Step 3: Intilize your frontend
+## Step 3: Initialize your forntend
 
-After setting up your backend, set up frontend now by following step in [some-file](./?)
+Now follow the steps to initialize the frontend of the application in [Initializing-the-Frontend.md](./frontend/Initializing-The-Frontend.md)
